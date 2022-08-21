@@ -1,0 +1,31 @@
+{% block title %}Home{% endblock %}
+
+
+
+{% block body %}
+
+{% if user.is_authenticated %}
+
+Welcome {{user.username}}
+<h3>logout now</h3>
+<button><a href="/accounts/logout/ ">logout</a></button>
+
+<form action="/trending">
+    <label for="lang">Choose a lang to see trending:</label>
+    <select name="lang" id="lang">
+        <option value="C">C</option>
+        <option value="Java">Java</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Python">Python</option>
+    </select>
+    <button type="submit" value="Submit">Submit</button>
+</form>
+
+{% else %}
+
+<h3>Your are not authenticated</h3>
+<h3>login now</h3>
+<button><a href="/accounts/login/ ">Github</a></button>
+{% endif %}
+
+{% endblock %}
